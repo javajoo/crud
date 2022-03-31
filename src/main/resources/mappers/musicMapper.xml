@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.crud.day02.dao.MusicDAO" >
+ 	<insert id="insertMusic">
+ 		INSERT INTO `music`
+ 		(
+			`title`
+			,`albumTitle`
+			,`name`
+			,`playTime`
+			,`memberCount`
+			,`lyricist`
+			,`composer`
+			,`debut`
+			,`agency`
+			,`releaseDate`
+			,`tracks`
+			,`fanClub`
+			,`createdAt`
+			,`updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			#{title}
+ 			,#{albumTitle}
+ 			,#{name}
+ 			,#{playTime}
+ 			,#{memberCount}
+ 			,#{lyricist}
+ 			,#{composer}
+ 			,#{debut}
+ 			,#{agency}
+ 			,#{releaseDate}
+ 			,#{tracks}
+ 			,#{fanClub}
+ 			,NOW()
+ 			,NOW() 			
+ 		)
+ 		
+ 	</insert>
+ 	
+ 	<select id="selectMusicList" resultType="com.crud.day02.model.Music">
+ 		SELECT 
+ 			`id`
+ 			,`title`
+			,`albumTitle`
+			,`name`
+			,`playTime`
+			,`memberCount`
+			,`lyricist`
+			,`composer`
+			,`debut`
+			,`agency`
+			,`releaseDate`
+			,`tracks`
+			,`fanClub`
+			,`introduce`
+			,`createdAt`
+			,`updatedAt`
+ 		FROM
+ 			`music`
+ 	</select>
+ 	
+ 	<delete id="deleteMusic" parameterType="int">
+ 		DELETE FROM `music`
+ 		where
+ 		`id` = #{id}
+ 	</delete>
+ 	
+ 	 <select id="selectMusic" resultType="com.crud.day02.model.Music">
+ 		SELECT 
+ 			`id`
+ 			,`title`
+			,`albumTitle`
+			,`name`
+			,`playTime`
+			,`memberCount`
+			,`lyricist`
+			,`composer`
+			,`debut`
+			,`agency`
+			,`releaseDate`
+			,`tracks`
+			,`fanClub`
+			,`introduce`
+			,`createdAt`
+			,`updatedAt`
+ 		FROM
+ 			`music`
+ 		WHERE
+ 			`id` = #{id}
+ 	</select>
+ 	
+ 	<update id="updateMusic">
+ 		UPDATE `music`
+ 		SET
+ 			`title` = #{title}
+ 			,`albumTitle` = #{albumTitle}
+ 			,`name` = #{name}
+ 			,`playTime` = #{playTime}
+ 			,`memberCount` = #{memberCount}
+ 			,`lyricist` = #{lyricist}
+ 			,`composer` = #{composer}
+ 			,`debut` = #{debut}
+ 			,`agency` = #{agency}
+ 			,`releaseDate` = #{releaseDate}
+ 			,`tracks` = #{tracks}
+ 			,`fanClub` = #{fanClub}
+ 			,`introduce` = #{introduce}
+ 			,`updatedAt` = NOW()
+ 		WHERE
+ 			`id` = #{id}
+ 	
+ 	</update>
+ </mapper>
