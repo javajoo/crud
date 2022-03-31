@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.crud.day01.dao.ResumeDAO">
+ 	<insert id="insertResume">
+ 		INSERT INTO `crud`
+ 		(
+	 		`loginId`
+			,`password`
+			,`name`
+			,`gender`
+			,`age`
+			,`birth`
+			,`nickname`
+			,`height`
+			,`weight`
+			,`job`
+			,`phoneNumber`
+			,`email`
+			,`performance`
+			,`salary`
+			,`introduce`
+			,`createdAt`
+			,`updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			#{loginId}
+ 			,#{password}
+ 			,#{name}
+ 			,#{gender}
+ 			,#{age}
+ 			,#{birth}
+ 			,#{nickname}
+ 			,#{height}
+ 			,#{weight}
+ 			,#{job}
+ 			,#{phoneNumber}
+ 			,#{email}
+ 			,#{performance}
+ 			,#{salary}
+ 			,#{introduce}
+ 			,NOW()
+ 			,NOW()
+ 		)
+ 		
+ 	</insert>
+ 	
+ 	<select id="selectResumeList" resultType="com.crud.day01.model.Resume">
+ 		SELECT
+ 			`id`
+ 			,`loginId`
+			,`password`
+			,`name`
+			,`gender`
+			,`age`
+			,`birth`
+			,`nickname`
+			,`height`
+			,`weight`
+			,`job`
+			,`phoneNumber`
+			,`email`
+			,`performance`
+			,`salary`
+			,`introduce`
+			,`createdAt`
+			,`updatedAt`
+ 		FROM
+ 			`crud`	
+ 	</select>
+ 	
+ 	<update id="updateResume" >
+ 		UPDATE `crud`
+ 		SET
+ 			`loginId` = #{loginId}
+ 			,`password` = #{password}
+ 			,`name` = #{name}
+ 			,`gender` = #{gender}
+ 			,`age` = #{age}
+ 			,`birth` = #{birth}
+ 			,`nickname` = #{nickname}
+ 			,`height` = #{height}
+ 			,`weight` = #{weight}
+ 			,`job` = #{job}
+ 			,`phoneNumber` = #{phoneNumber}
+ 			,`email` = #{email}
+ 			,`performance` = #{performance}
+ 			,`salary` = #{salary}
+ 			,`introduce` = #{introduce}
+ 			,`updatedAt` = NOW()
+
+ 	
+ 	</update>
+ 	
+ 	<delete id="deleteResume" parameterType="int">
+ 		DELETE FROM `crud`
+ 		WHERE 
+ 		`id` = #{id}
+ 		
+ 	</delete>
+ 	
+ 	<select id="selectResumeByid" resultType="com.crud.day01.model.Resume" parameterType="int">
+ 		SELECT
+ 			`id`
+ 			,`loginId`
+			,`password`
+			,`name`
+			,`gender`
+			,`age`
+			,`birth`
+			,`nickname`
+			,`height`
+			,`weight`
+			,`job`
+			,`phoneNumber`
+			,`email`
+			,`performance`
+			,`salary`
+			,`introduce`
+			,`createdAt`
+			,`updatedAt`
+ 		FROM
+ 			`crud`	
+ 		WHERE
+ 			`id` = #{id}
+ 	</select>
+ </mapper>
