@@ -10,9 +10,7 @@
   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
   crossorigin="anonymous"></script>
 </head>
-</head>
 <body>
-
 	<div><input type="text" placeholder="순서" id="id" value=${resume.id}></div>
 	<div><input type="text" placeholder="아이디" id="loginId" value=${resume.loginId}></div>
 	<div><input type="password" placeholder="비밀번호" id="password" value=${resume.password}></div>

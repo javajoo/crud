@@ -71,7 +71,7 @@
  			`crud`	
  	</select>
  	
- 	<update id="updateResume" >
+ 	<update id="updateResume">
  		UPDATE `crud`
  		SET
  			`loginId` = #{loginId}
@@ -90,8 +90,6 @@
  			,`salary` = #{salary}
  			,`introduce` = #{introduce}
  			,`updatedAt` = NOW()
-
- 	
  	</update>
  	
  	<delete id="deleteResume" parameterType="int">
