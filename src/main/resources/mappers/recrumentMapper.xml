@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.crud.day03.dao.RecrumentDAO">
+ 	<insert id="insertRecrument" >
+ 		INSERT INTO `recrument`
+ 		(
+			`name`
+			,`business`
+			,`scale`
+			,`headcount`
+			,`position`
+			,`responsibilities`
+			,`qualification`
+			,`type`
+			,`region`
+			,`salary`
+			,`deadline`
+			,`createdAt`
+			,`updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			#{name}
+ 			,#{business}
+ 			,#{scale}
+ 			,#{headcount}
+ 			,#{position}
+ 			,#{responsibilities}
+ 			,#{qualification}
+ 			,#{type}
+ 			,#{region}
+ 			,#{salary}
+ 			,#{deadline}
+ 			,NOW()
+ 			,NOW()
+ 		)
+ 	</insert>
+ 	
+ 	<select id="selectRecrumentList" resultType="com.crud.day03.model.Recrument">
+ 		SELECT 
+ 			`id`
+ 			,`name`
+			,`business`
+			,`scale`
+			,`headcount`
+			,`position`
+			,`responsibilities`
+			,`qualification`
+			,`type`
+			,`region`
+			,`salary`
+			,`deadline`
+			,`createdAt`
+			,`updatedAt`
+ 		FROM
+ 			`recrument`
+ 	</select>
+ 	
+ 	<delete id="deleteRecrument">
+ 		DELETE 
+ 		FROM `recrument`
+ 		WHERE `id` = #{id}
+ 	</delete>
+ 	
+ 	<select id="selectRecrument"  resultType="com.crud.day03.model.Recrument" parameterType="int">
+ 	SELECT 
+ 			`id`
+ 			,`name`
+			,`business`
+			,`scale`
+			,`headcount`
+			,`position`
+			,`responsibilities`
+			,`qualification`
+			,`type`
+			,`region`
+			,`salary`
+			,`deadline`
+			,`createdAt`
+			,`updatedAt`
+ 		FROM
+ 			`recrument`
+ 		WHERE
+ 			`id`= #{id}
+ 	</select>
+ 	
+ 	<update id="updateRecrument">
+ 		UPDATE `recrument`
+ 		SET
+	 		`name` = #{name}
+			,`business` = #{business}
+			,`scale` = #{scale}
+			,`headcount` = #{headcount}
+			,`position` = #{position}
+			,`responsibilities` = #{responsibilities}
+			,`qualification` = #{qualification}
+			,`type` = #{type}
+			,`region` = #{region}
+			,`salary` = #{salary}
+			,`deadline` = #{deadline}
+			,`updatedAt` = NOW()
+ 		WHERE
+ 			`id` = #{id}
+ 	</update>
+ </mapper>
