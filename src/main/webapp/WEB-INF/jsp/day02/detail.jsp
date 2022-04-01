@@ -58,7 +58,7 @@
 	
 	<script>
 		$(document).ready(function(e) {
-			$('#updateBtn').on('click',function(e) {
+			$('.update-btn').on('click',function(e) {
 				//alert('click');
 				
 				var id = $('.update-btn').data('music-id');
