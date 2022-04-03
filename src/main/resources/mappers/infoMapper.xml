@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.crud.day04.dao.InfoDAO">
+	<insert id="insertInfo">
+		INSERT INTO `info`
+		(
+			`name`
+			,`phoneNumber`
+			,`email`
+			,`dreamJob`
+			,`year`
+			,`semester`
+			,`term`
+			,`subject`
+			,`score`
+			,`createdAt`
+			,`updatedAt`
+		)
+		VALUES
+		(
+			#{name}
+			,#{phoneNumber}
+			,#{email}
+			,#{dreamJob}
+			,#{year}
+			,#{semester}
+			,#{term}
+			,#{subject}
+			,#{score}
+			,NOW()
+			,NOW()
+		)
+	</insert>
+	
+	<select id="selectInfo" resultType="com.crud.day04.model.Info">
+		SELECT 
+			`id`
+			,`name`
+			,`phoneNumber`
+			,`email`
+			,`dreamJob`
+			,`year`
+			,`semester`
+			,`term`
+			,`subject`
+			,`score`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`info`
+	</select>
+	
+	<delete id="deleteInfoById">
+		DELETE
+		FROM `info`
+		WHERE
+		`id` = #{id}
+	</delete>
+	
+	<select id="selectInfoById"  resultType="com.crud.day04.model.Info" parameterType="int">
+		SELECT 
+			`id`
+			,`name`
+			,`phoneNumber`
+			,`email`
+			,`dreamJob`
+			,`year`
+			,`semester`
+			,`term`
+			,`subject`
+			,`score`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`info`
+		WHERE 
+			`id` = #{id}
+	</select>
+	
+	<update id="updateInfo">
+		UPDATE `info`
+		SET
+			`name` = #{name}
+			,`phoneNumber` = #{phoneNumber}
+			,`email` = #{email}
+			,`dreamJob` = #{dreamJob}
+			,`year` = #{year}
+			,`semester` = #{semester}
+			,`term` = #{term}
+			,`subject` = #{subject}
+			,`score` = #{score}
+			,`updatedAt` = NOW()
+		WHERE
+			`id` = #{id}
+	</update>
+</mapper>
