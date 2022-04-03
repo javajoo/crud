@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.crud.day05.dao.BookingDAO">
+	<insert id="insertBooking">
+		INSERT INTO `booking`
+		(
+			loginId
+			,password
+			,name
+			,region
+			,headcount
+			,day
+			,checkin
+			,chcekout
+			,phoneNumber
+			,state
+			,createdAt
+			,updatedAt
+		)
+		VALUES
+		(
+			#{loginId}
+			,#{password}
+			,#{name}
+			,#{region}
+			,#{headcount}
+			,#{day}
+			,#{checkin}
+			,#{chcekout}
+			,#{phoneNumber}
+			,#{state}
+			,NOW()
+			,NOW()
+		)
+	</insert>
+	
+	<select id="selectBookingList" resultType="com.crud.day05.model.Booking">
+		SELECT
+			id
+			,loginId
+			,password
+			,name
+			,region
+			,headcount
+			,day
+			,checkin
+			,chcekout
+			,phoneNumber
+			,state
+			,createdAt
+			,updatedAt
+		FROM
+			`booking`	
+	</select>
+	
+	<delete id="deleteBookingById">
+		DELETE
+		FROM  `booking`
+		WHERE
+			`id` = #{id}
+	</delete>
+	
+	<select id="selectBookingById" resultType="com.crud.day05.model.Booking">
+		SELECT
+			id
+			,loginId
+			,password
+			,name
+			,region
+			,headcount
+			,day
+			,checkin
+			,chcekout
+			,phoneNumber
+			,state
+			,createdAt
+			,updatedAt
+		FROM
+			`booking`	
+		WHERE
+			`id` = #{id}
+	</select>
+	
+	<update id="updateBookingById">
+		UPDATE `booking`
+		SET	
+			loginId = #{loginId}
+			,password = #{password}
+			,name = #{name}
+			,region = #{region}
+			,headcount = #{headcount}
+			,day = #{day}
+			,checkin = #{checkin}
+			,chcekout = #{chcekout}
+			,phoneNumber = #{phoneNumber}
+			,state = #{state}
+			,updatedAt = NOW()
+		
+		WHERE
+			`id` = #{id}
+	</update>
+</mapper>
