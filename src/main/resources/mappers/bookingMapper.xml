@@ -6,18 +6,18 @@
 	<insert id="insertBooking">
 		INSERT INTO `booking`
 		(
-			loginId
-			,password
-			,name
-			,region
-			,headcount
-			,day
-			,checkin
-			,chcekout
-			,phoneNumber
-			,state
-			,createdAt
-			,updatedAt
+			`loginId`
+			,`password`
+			,`name`
+			,`region`
+			,`headcount`
+			,`day`
+			,`checkin`
+			,`chcekout`
+			,`phoneNumber`
+			,`state`
+			,`createdAt`
+			,`updatedAt`
 		)
 		VALUES
 		(
