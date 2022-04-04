@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.crud.day06.dao.ReviewDAO">
+	<insert id="insertReview">
+		INSERT INTO `review`
+		(
+			`store`
+			,`phoneNumber`
+			,`address`
+			,`businessNumber`
+			,`introduce`
+			,`menu`
+			,`minPrice`
+			,`method`
+			,`deliveryTime`
+			,`deliveryTip`
+			,`userName`
+			,`point`
+			,`review`
+			,`createdAt`
+			,`updatedAt`
+		)
+		VALUES
+		(
+			#{store}
+			,#{phoneNumber}
+			,#{address}
+			,#{businessNumber}
+			,#{introduce}
+			,#{menu}
+			,#{minPrice}
+			,#{method}
+			,#{deliveryTime}
+			,#{deliveryTip}
+			,#{userName}
+			,#{point}
+			,#{review}
+			,NOW()
+			,NOW()
+		)
+	</insert>
+	
+	<select id="selectReviewList" resultType="com.crud.day06.model.Review">
+		SELECT 
+			`id`
+			,`store`
+			,`phoneNumber`
+			,`address`
+			,`businessNumber`
+			,`introduce`
+			,`menu`
+			,`minPrice`
+			,`method`
+			,`deliveryTime`
+			,`deliveryTip`
+			,`userName`
+			,`point`
+			,`review`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`review`
+	</select>
+	
+	<delete id="deleteReviewById">
+		DELETE
+		FROM `review`
+		WHERE
+			`id` = #{id}
+	</delete>
+	
+	<select id="selectReview" resultType="com.crud.day06.model.Review">
+		SELECT 
+			`id`
+			,`store`
+			,`phoneNumber`
+			,`address`
+			,`businessNumber`
+			,`introduce`
+			,`menu`
+			,`minPrice`
+			,`method`
+			,`deliveryTime`
+			,`deliveryTip`
+			,`userName`
+			,`point`
+			,`review`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`review`
+		WHERE
+			`id` = #{id}
+	</select>
+	
+	<update id="updateReviewById">
+		UPDATE `review`
+		SET
+			`store` = #{store}
+			,`phoneNumber` = #{phoneNumber}
+			,`address` = #{address}
+			,`businessNumber` = #{businessNumber}
+			,`introduce` = #{introduce}
+			,`menu` = #{menu}
+			,`minPrice` = #{minPrice}
+			,`method` = #{method}
+			,`deliveryTime` = #{deliveryTime}
+			,`deliveryTip` = #{deliveryTip}
+			,`userName` = #{userName}
+			,`point` = #{point}
+			,`review` = #{review}
+			,`updatedAt` = NOW()
+		WHERE
+			`id` = #{id}
+	</update>
+</mapper>
