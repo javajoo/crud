@@ -4,7 +4,7 @@
 
  <mapper namespace="com.crud.day01.dao.ResumeDAO">
  	<insert id="insertResume">
- 		INSERT INTO `crud`
+ 		INSERT INTO `resume`
  		(
 	 		`loginId`
 			,`password`
