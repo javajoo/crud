@@ -48,7 +48,7 @@
 				<th>${review.point}</th>
 				<th>${review.review}</th>
 				<th><a href="/day06/detail_view?id=${review.id}"><button type="button" data-review-id="${review.id}">수정</button></a></th>
-				<th><button type="button" data-review-id=${review.id} class="delete-btn" onclick="deleteBtn()">삭제</button></th>
+				<th><button type="button" data-review-id="${review.id}" class="delete-btn" onclick="deleteBtn()">삭제</button></th>
 			</tr>
 		</c:forEach>
 	</table>
