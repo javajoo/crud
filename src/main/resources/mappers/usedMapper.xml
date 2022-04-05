@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.crud.day07.dao.UsedDAO">
+ 	<insert id="insertUsed">
+ 		INSERT INTO `used`
+ 		(
+ 			`nickname`
+ 			,`temperate`
+ 			,`title`
+ 			,`category`
+ 			,`price`
+ 			,`content`
+ 			,`area`
+ 			,`startDate`
+ 			,`endDate`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			#{nickname}
+ 			,#{temperate}
+ 			,#{title}
+ 			,#{category}
+ 			,#{price}
+ 			,#{content}
+ 			,#{area}
+ 			,#{startDate}
+ 			,#{endDate}
+ 			,NOW()
+ 			,NOW()
+ 		)
+ 	</insert>
+ 	
+ 	<select id="selectUsedList" resultType="com.crud.day07.model.Used">
+ 		SELECT
+ 			`id`
+ 			,`nickname`
+ 			,`temperate`
+ 			,`title`
+ 			,`category`
+ 			,`price`
+ 			,`content`
+ 			,`area`
+ 			,`startDate`
+ 			,`endDate`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM
+ 			`used`
+ 	</select>
+ 	
+ 	<delete id="deleteUsedById">
+ 		DELETE
+ 		FROM `used`
+ 		WHERE
+ 			`id` = #{id}
+ 	</delete>
+ 	
+ 	<select id="selectUsedById" resultType="com.crud.day07.model.Used">
+ 	 	SELECT
+ 			`id`
+ 			,`nickname`
+ 			,`temperate`
+ 			,`title`
+ 			,`category`
+ 			,`price`
+ 			,`content`
+ 			,`area`
+ 			,`startDate`
+ 			,`endDate`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM
+ 			`used`
+ 		WHERE
+ 			`iD` = #{id}
+ 	</select>
+ 	
+ 	<update id="updateUsedById">
+ 		UPDATE `used`
+ 		SET 
+ 			`nickname` = #{nickname}
+ 			,`temperate` = #{temperate}
+ 			,`title` = #{title}
+ 			,`category` = #{category}
+ 			,`price` = #{price}
+ 			,`content` = #{content}
+ 			,`area` = #{area}
+ 			,`startDate` = #{startDate}
+ 			,`endDate` = #{endDate}
+ 			,`createdAt` = NOW()
+ 			,`updatedAt` = NOW()
+ 		WHERE
+ 			`id` = #{id}
+ 	</update>
+ </mapper>
