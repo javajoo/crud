@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.crud.day08.dao.MarketDAO">
+ 	<insert id="insertMarket">
+ 		INSERT INTO `market`
+ 		(
+	 		`nickname`
+			,`temperate`
+			,`title`
+			,`category`
+			,`price`
+			,`content`
+			,`area`
+			,`startDate`
+			,`endDate`
+			,`createdAt`
+			,`updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			#{nickname}
+ 			,#{temperate}
+ 			,#{title}
+ 			,#{category}
+ 			,#{price}
+ 			,#{content}
+ 			,#{area}
+ 			,#{startDate}
+ 			,#{endDate}
+ 			,NOW()
+ 			,NOW()
+ 		)
+ 	</insert>
+ 	
+ 	<select id="selectMarketList" resultType="com.crud.day08.model.Market" >
+ 		SELECT
+ 			`id`
+ 			,`nickname`
+			,`temperate`
+			,`title`
+			,`category`
+			,`price`
+			,`content`
+			,`area`
+			,`startDate`
+			,`endDate`
+			,`createdAt`
+			,`updatedAt`
+ 		FROM
+ 			`market`
+ 	</select>
+ 	
+ 	<select id="selectMarketById" resultType="com.crud.day08.model.Market" >
+ 		SELECT
+ 			`id`
+ 			,`nickname`
+			,`temperate`
+			,`title`
+			,`category`
+			,`price`
+			,`content`
+			,`area`
+			,`startDate`
+			,`endDate`
+			,`createdAt`
+			,`updatedAt`
+ 		FROM
+ 			`market`
+ 		WHERE
+ 			`id` = #{id}
+ 	</select>
+ 	
+ 	<update id="updateMarketById">
+ 		UPDATE `market`
+ 		SET
+			`nickname` = #{nickname}
+			,`temperate` = #{temperate}
+			,`title` = #{title}
+			,`category` = #{category}
+			,`price` = #{price}
+			,`content` = #{content}
+			,`area` = #{area}
+			,`startDate` = #{startDate}
+			,`endDate` = #{endDate}
+			,`updatedAt` = #{updatedAt}
+ 		WHERE
+ 			`id` = #{id}
+ 	</update>
+ 	
+ 	<delete id="deleteMarketById">
+ 		DELETE
+ 		FROM `market`
+ 		WHERE 
+ 			`id` = #{id}
+ 		
+ 	</delete>
+ </mapper>
