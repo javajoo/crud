@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.crud.day09.dao.AccountDAO">
+ 	<insert id="insertAccount">
+ 		insert into `account`
+ 		(
+ 			`loginId`
+ 			,`password`
+ 			,`confirmPassword`
+ 			,`name`
+ 			,`email`
+ 			,`lecture`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		)
+ 		values
+ 		(
+ 			#{loginId}
+ 			,#{password}
+ 			,#{confirmPassword}
+ 			,#{name}
+ 			,#{email}
+ 			,#{lecture}
+ 			,NOW()
+ 			,NOW()
+ 		)
+ 		
+ 	</insert>
+ 	
+ 	<select id="selectAccount" resultType="com.crud.day09.vo.Account">
+ 		select 
+ 			`id`
+ 			,`loginId`
+ 			,`password`
+ 			,`confirmPassword`
+ 			,`name`
+ 			,`email`
+ 			,`lecture`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		from
+ 			`account`
+ 	</select>
+ 	
+ 	<delete id="deleteAccountById">
+ 		delete from
+ 		`account`
+ 		where
+ 		`id` = #{id}
+ 	</delete>
+ 	
+ 	<select id="selectAccountById" resultType="com.crud.day09.vo.Account" parameterType="int">
+ 		select 
+ 			`id`
+ 			,`loginId`
+ 			,`password`
+ 			,`confirmPassword`
+ 			,`name`
+ 			,`email`
+ 			,`lecture`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		from
+ 			`account`
+ 		where
+ 			`id` = #{id}
+ 	</select>
+ 	
+ 	<update id="updateAccountById">
+ 		update `account`
+ 		set
+ 			`loginId` = #{loginId}
+ 			,`password` = #{password}
+ 			,`confirmPassword` = #{confirmPassword}
+ 			,`name` = #{name}
+ 			,`email` = #{email}
+ 			,`lecture` = #{lecture}
+ 			,`updatedAt` = now()
+ 		where
+ 			`id` = #{id}
+ 		
+ 	</update>
+ 	
+ </mapper>
