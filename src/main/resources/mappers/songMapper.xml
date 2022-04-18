@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.crud.day10.mapper.SongMapper">
+ 	<insert id="insertSong">
+ 		insert into `song`
+ 		(
+ 			`title`
+			,`playTime`
+			,`lyricist`
+			,`composer`
+			,`name`
+			,`debut`
+			,`agency`
+			,`releaseDate`
+			,`tracks`
+			,`createdAt`
+			,`updatedAt`
+ 		)
+ 		values
+ 		(
+ 			#{title}
+ 			,#{playTime}
+ 			,#{lyricist}
+ 			,#{composer}
+ 			,#{name}
+ 			,#{debut}
+ 			,#{agency}
+ 			,#{releaseDate}
+ 			,#{tracks}
+ 			,now()
+ 			,now()
+ 		)
+ 	</insert>
+ 	
+ 	<select id="selectSongList" resultType="com.crud.day10.vo.Song">
+ 		select 
+ 			`id`
+			,`title`
+			,`playTime`
+			,`lyricist`
+			,`composer`
+			,`name`
+			,`debut`
+			,`agency`
+			,`releaseDate`
+			,`tracks`
+			,`createdAt`
+			,`updatedAt`
+ 		from
+ 			`song`
+ 	</select>
+ 	
+ 	<delete id="deleteSongById">
+ 	 	delete 
+ 	 	from `song`
+ 	 	where
+ 	 		`id` = #{id}
+ 	 	
+ 	</delete>
+ 	
+ 	<select id="selectSongById"  resultType="com.crud.day10.vo.Song">
+ 			select 
+ 			`id`
+			,`title`
+			,`playTime`
+			,`lyricist`
+			,`composer`
+			,`name`
+			,`debut`
+			,`agency`
+			,`releaseDate`
+			,`tracks`
+			,`createdAt`
+			,`updatedAt`
+ 		from
+ 			`song`
+ 		where
+ 			`id` = #{id}
+ 	</select>
+ 	
+ 	<update id="updateSongById">
+ 		update `song`
+ 		set
+ 			`title` = #{title}
+ 			,`playTime` = #{playTime}
+ 			,`lyricist` = #{lyricist}
+ 			,`composer` = #{composer}
+ 			,`name` = #{name}
+ 			,`debut` = #{debut}
+ 			,`agency` = #{agency}
+ 			,`releaseDate` = #{releaseDate}
+ 			,`tracks` = #{tracks}
+ 			,`updatedAt` = now()
+ 		where
+ 			`id` = #{id}
+ 	</update>
+ </mapper>
