@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.crud.day11.mapper.PeopleMapper">
+ 	<insert id="insertPeople">
+ 		insert into `people`
+ 		(
+	 		`loginId`
+			,`password`
+			,`name`
+			,`nickname`
+			,`job`
+			,`height`
+			,`weight`
+			,`gender`
+			,`birth`
+			,`email`
+			,`hobby`
+			,`introduce`
+			,`phoneNumber`
+			,`createdAt`
+			,`updatedAt`
+ 		)
+ 		values
+ 		(
+	 		#{loginId}
+	 		,#{password}
+	 		,#{name}
+	 		,#{nickname}
+	 		,#{job}
+	 		,#{height}
+	 		,#{weight}
+	 		,#{gender}
+	 		,#{birth}
+	 		,#{email}
+	 		,#{hobby}
+	 		,#{introduce}
+	 		,#{phoneNumber}
+	 		,NOW()
+	 		,NOW()
+ 		)
+ 		
+ 	</insert>
+ 	
+ 	<select id="selectPeopleList" resultType="com.crud.day11.vo.People">
+ 		select 
+ 			`id`
+			,`loginId`
+			,`password`
+			,`name`
+			,`nickname`
+			,`job`
+			,`height`
+			,`weight`
+			,`gender`
+			,`birth`
+			,`email`
+			,`hobby`
+			,`introduce`
+			,`phoneNumber`
+			,`createdAt`
+			,`updatedAt`
+ 		from
+ 			`people`
+ 	</select>
+ 	
+ 	<delete id="deletePeopleById">
+ 		delete 
+ 		from `people`
+ 		where
+ 			`id` = #{id}
+ 	</delete>
+ 	
+ 		<select id="selectPeopleById" resultType="com.crud.day11.vo.People">
+ 		select 
+ 			`id`
+			,`loginId`
+			,`password`
+			,`name`
+			,`nickname`
+			,`job`
+			,`height`
+			,`weight`
+			,`gender`
+			,`birth`
+			,`email`
+			,`hobby`
+			,`introduce`
+			,`phoneNumber`
+			,`createdAt`
+			,`updatedAt`
+ 		from
+ 			`people`
+ 		where
+ 			`id` = #{id}
+ 	</select>
+ 	
+ 	<update id="updatePeopleById">
+ 		update `people`
+ 		set
+ 			`loginId` = #{loginId}
+ 			,`password` = #{password}
+ 			,`name` = #{name}
+ 			,`nickname` = #{nickname}
+ 			,`job` = #{job}
+ 			,`height` = #{height}
+ 			,`weight` = #{weight}
+ 			,`gender` = #{gender}
+ 			,`birth` = #{birth}
+ 			,`email` = #{email}
+ 			,`hobby` = #{hobby}
+ 			,`introduce` = #{introduce}
+ 			,`phoneNumber` = #{phoneNumber}
+ 			,`createdAt` = NOW()
+ 			,`updatedAt` = NOW()
+ 		where
+ 			`id` = #{id}
+ 	</update>
+ </mapper>

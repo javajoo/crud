@@ -73,7 +73,7 @@
 						alert('추가성공');
 						location.href='/day10/list_view';
 					} else {
-						alert(errorMessage);
+						alert(data.errorMessage);
 					}
 				}
 				,error: function(data) {

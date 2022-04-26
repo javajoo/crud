@@ -59,7 +59,7 @@
 						alert('삭제성공');
 						location.reload();
 					} else {
-						alert(errorMessage);
+						alert(data.errorMessage);
 					}
 				}
 				,error: function(data) {
