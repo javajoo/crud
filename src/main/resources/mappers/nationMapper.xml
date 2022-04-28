@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.crud.day12.dao.NationDAO">
+ 	<insert id="insertNation">
+ 		insert into `nation`
+ 		(
+	 		`nationalAnthem`
+	 		,`language`
+	 		,`capital`
+	 		,`moneyUnit`
+	 		,`area`
+	 		,`population`
+	 		,`gdp`
+	 		,`climate`
+	 		,`history`
+	 		,`createdAt`
+	 		,`updatedAt`
+ 		)
+ 		values
+ 		(
+ 			#{nationalAnthem}
+ 			,#{language}
+ 			,#{capital}
+ 			,#{moneyUnit}
+ 			,#{area}
+ 			,#{population}
+ 			,#{gdp}
+ 			,#{climate}
+ 			,#{history}
+ 			,NOW()
+ 			,NOW()
+ 		)
+ 	</insert>
+ 	
+ 	<select id="selectNationList" resultType="com.crud.day12.vo.Nation">
+ 		select
+ 			`id`
+ 			,`nationalAnthem`
+	 		,`language`
+	 		,`capital`
+	 		,`moneyUnit`
+	 		,`area`
+	 		,`population`
+	 		,`gdp`
+	 		,`climate`
+	 		,`history`
+	 		,`createdAt`
+	 		,`updatedAt`
+ 		from
+ 			`nation`
+ 	</select>
+ 	
+ 	<delete id="deleteNationById">
+ 		delete from `nation`
+ 		where 
+ 			`id` = #{id}
+ 	</delete>
+ 	
+ 	<select id="selectNationById" resultType="com.crud.day12.vo.Nation">
+ 	 		select
+ 			`id`
+ 			,`nationalAnthem`
+	 		,`language`
+	 		,`capital`
+	 		,`moneyUnit`
+	 		,`area`
+	 		,`population`
+	 		,`gdp`
+	 		,`climate`
+	 		,`history`
+	 		,`createdAt`
+	 		,`updatedAt`
+ 		from
+ 			`nation`
+ 		where
+ 			`id` = #{id}
+ 	</select>
+ 	
+ 	<update id="updateNationById" >
+ 		update `nation`
+ 		set 
+ 			`nationalAnthem` = #{nationalAnthem}
+ 			,`language` = #{language}
+ 			,`capital` = #{capital}
+ 			,`moneyUnit` = #{moneyUnit}
+ 			,`area` = #{area}
+ 			,`population` = #{population}
+ 			,`gdp` = #{gdp}
+ 			,`climate` = #{climate}
+ 			,`history` = #{history}
+ 			,`createdAt` = NOW()
+ 			,`updatedAt` = NOW()
+ 		where
+ 			`id` = #{id}
+ 	</update>
+ </mapper>
